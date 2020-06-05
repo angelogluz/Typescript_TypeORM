@@ -5,21 +5,17 @@ import {
   UpdateDateColumn,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Lesson from './Lesson';
 
-@Entity('class')
-export default class Class {
+@Entity('student')
+export default class Student {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({
-    length: 100,
-    unique: true,
-  })
+  @Column()
   name: string;
 
   @Column()
-  duration: number;
+  key: number;
 
   @CreateDateColumn({ name: 'created_At' })
   createdAt: Date;

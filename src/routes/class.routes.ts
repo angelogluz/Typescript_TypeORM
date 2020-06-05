@@ -12,6 +12,7 @@ classRouter.post('/', async (request, response) => {
     return response.status(201).json(res);
   } catch (err) {
     console.log('err.message :>> ', err.message);
+    return response.status(400).send();
   }
 });
 
