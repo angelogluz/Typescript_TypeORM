@@ -4,6 +4,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
 import Lesson from './Lesson';
 
@@ -17,6 +18,9 @@ export default class Class {
     unique: true,
   })
   name: string;
+
+  @OneToMany(type => Lesson, classe => Class)
+  lessons: Lesson[];
 
   @Column()
   duration: number;
