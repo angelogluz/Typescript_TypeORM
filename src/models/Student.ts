@@ -20,6 +20,9 @@ export default class Student {
   @Column()
   key: number;
 
+  @Column()
+  email: string;
+
   @ManyToMany(type => Class)
   @JoinTable()
   classes: Class;
