@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
+  UpdateDateColumn,
+  CreateDateColumn,
 } from 'typeorm';
 import Lesson from './Lesson';
 
@@ -21,4 +23,10 @@ export default class Content {
 
   @Column()
   linkContent: string;
+
+  @CreateDateColumn({ name: 'created_At' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_At' })
+  updatedAt: Date;
 }
