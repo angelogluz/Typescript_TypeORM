@@ -1,16 +1,16 @@
 console.log('process.env.DATABASE_URL :>> ', process.env.DATABASE_URL);
+console.log('process.env.DATABASE_URL :>> ', process.env.ENTITIES);
+console.log('process.env.DATABASE_URL :>> ', process.env.MIGRATIONS);
 module.exports = {
 
   "type": "postgres",
   "url" : process.env.DATABASE_URL,
   "logging": true,
   "entities": [
-    //"dist/models/**/*.js"
-    "src/models/**/*.ts"
+    process.env.ENTITIES
  ],
  "migrations": [
-  //"dist/database/migrations/**/*.js"
-  "src/database/migrations/**/*.ts"
+  process.env.MIGRATIONS
 ],
  "cli":{
   "migrationsDir": [
