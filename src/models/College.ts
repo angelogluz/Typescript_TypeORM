@@ -11,4 +11,7 @@ export default class College {
 
   @Column()
   year: number;
+
+  @Column()
+  toDeleteColumn: number;
 }

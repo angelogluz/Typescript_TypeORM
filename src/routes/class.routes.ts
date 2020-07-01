@@ -22,7 +22,7 @@ classRouter.get('/', async (request, response) => {
 
 classRouter.get('/:name', async (request, response) => {
   const repository = getCustomRepository(ClassRepository);
-  const res = await repository.findByName(request.params.name);
+  const res = await repository.findByName(request, response);
   response.json(res);
 });
 
