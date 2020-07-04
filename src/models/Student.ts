@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 import { IsEmail, Max, Min, MaxLength, MinLength } from 'class-validator';
-import Class from './Class';
+import Discipline from './Discipline';
 
 @Entity('student')
 export default class Student {
@@ -30,9 +30,9 @@ export default class Student {
   @IsEmail()
   email: string;
 
-  @ManyToMany(type => Class)
+  @ManyToMany(type => Discipline)
   @JoinTable()
-  classes: Class;
+  discipline: Discipline;
 
   @CreateDateColumn({ name: 'created_At' })
   createdAt: Date;

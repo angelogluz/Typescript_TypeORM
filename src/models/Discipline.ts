@@ -8,8 +8,8 @@ import {
 } from 'typeorm';
 import Lesson from './Lesson';
 
-@Entity('class')
-export default class Class {
+@Entity('discipline')
+export default class Discipline {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -19,7 +19,7 @@ export default class Class {
   })
   name: string;
 
-  @OneToMany(type => Lesson, classe => Class)
+  @OneToMany(type => Lesson, discipline => Discipline)
   lessons: Lesson[];
 
   @Column()
