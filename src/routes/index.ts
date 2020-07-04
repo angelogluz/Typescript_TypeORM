@@ -2,7 +2,7 @@ import { Router } from 'express';
 import lessonRouter from './lesson.routes';
 import studentRouter from './student.routes';
 import contentRouter from './content.routes';
-import disciplineRouter from './class.routes';
+import disciplineRouter from './discipline.routes';
 
 const routes = Router();
 
