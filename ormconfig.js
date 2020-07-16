@@ -6,6 +6,13 @@ module.exports = {
   "type": "postgres",
   "url" : process.env.DATABASE_URL,
   "logging": true,
+  "cache": {
+    type: "redis",
+    options: {
+      host: "localhost",
+      port: 6379
+    }
+  },
   "entities": [
     process.env.ENTITIES
  ],
