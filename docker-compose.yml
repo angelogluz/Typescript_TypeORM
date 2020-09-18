@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  api:
+    container_name: typeorm_api
+    build: .
+    ports:
+      - ${API_PORT}:${API_PORT}
+    volumes:
+      - .:/home/api
+      - /home/api/node_modules
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+
+  database:
+    container_name: typeorm_db
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:5432
