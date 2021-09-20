@@ -1,5 +1,5 @@
-FROM node:12-alpine
+FROM node:14.9.0-alpine
 
 WORKDIR /home/api
 
-CMD npm run start:docker:dev
+CMD yarn start:docker:dev
