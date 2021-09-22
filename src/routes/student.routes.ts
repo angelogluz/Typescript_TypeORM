@@ -1,6 +1,6 @@
+import { validate } from 'class-validator';
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
-import { validate } from 'class-validator';
 import Student from '../models/Student';
 
 const studentRouter = Router();
@@ -8,12 +8,13 @@ const studentRouter = Router();
 studentRouter.post('/', async (request, response) => {
   try {
     const repo = getRepository(Student);
-    const { key, name, email } = request.body;
+    const { key, name, email, discipline } = request.body;
 
     const student = repo.create({
       key,
       name,
       email,
+      discipline,
     });
 
     const errors = await validate(student);

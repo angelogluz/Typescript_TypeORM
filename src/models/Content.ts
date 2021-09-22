@@ -1,11 +1,11 @@
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  JoinColumn,
-  UpdateDateColumn,
   CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import Lesson from './Lesson';
 
@@ -14,7 +14,7 @@ export default class Content {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToOne(type => Lesson, content => Content)
+  @OneToOne(type => Lesson, content => Content, { eager: true, cascade: true })
   @JoinColumn()
   lesson: Lesson;
 

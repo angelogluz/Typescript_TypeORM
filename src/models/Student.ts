@@ -1,17 +1,16 @@
+import { IsEmail, Max, MaxLength, Min, MinLength } from 'class-validator';
+import dotenv from 'dotenv';
 import {
-  Entity,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
-  PrimaryGeneratedColumn,
-  ManyToMany,
+  Entity,
   JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import dotenv from 'dotenv';
-
-import { IsEmail, Max, Min, MaxLength, MinLength } from 'class-validator';
-import Discipline from './Discipline';
 import { MyCrypto } from '../helpers/crypto';
+import Discipline from './Discipline';
 
 dotenv.config();
 @Entity('student')
@@ -39,9 +38,9 @@ export default class Student {
   @IsEmail()
   email: string;
 
-  @ManyToMany(type => Discipline)
+  @ManyToMany(type => Discipline, { eager: true })
   @JoinTable()
-  discipline: Discipline;
+  discipline: Discipline[];
 
   @CreateDateColumn({ name: 'created_At' })
   createdAt: Date;
